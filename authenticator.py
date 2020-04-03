@@ -1,5 +1,6 @@
 import boto3
 import os
+import getpass
 
 from environs import Env
 
@@ -20,10 +21,9 @@ cognito_idp_client = boto3.client("cognito-idp")
 cognito_identity_client = boto3.client("cognito-identity")
 
 # Ask the User for his User Name and Password
-print("Please enter your User Name:")
+print("User Name:")
 user_name = input()
-print("Please enter your Password:")
-password = input()
+password = getpass.getpass()
 
 auth_parameters = {
     "USERNAME": user_name,
@@ -66,6 +66,13 @@ user_access_key_id = response["Credentials"]["AccessKeyId"]
 user_secret_access_key = response["Credentials"]["SecretKey"]
 session_token = response["Credentials"]["SessionToken"]
 
-os.environ["user_access_key_id"] = user_access_key_id
-os.environ["user_secret_access_key"] = user_secret_access_key
-os.environ["session_token"] = session_token
+# os.environ["user_access_key_id"] = user_access_key_id
+# os.environ["user_secret_access_key"] = user_secret_access_key
+# os.environ["session_token"] = session_token
+
+print("ACCESS_KEY_ID:")
+print(user_access_key_id)
+print("SECRET_ACCESS_KEY:")
+print(user_secret_access_key)
+print("SESSION_TOKEN")
+print(session_token)
