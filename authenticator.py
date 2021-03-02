@@ -1,5 +1,4 @@
 import boto3
-import os
 import getpass
 
 from environs import Env
@@ -66,9 +65,6 @@ user_access_key_id = response["Credentials"]["AccessKeyId"]
 user_secret_access_key = response["Credentials"]["SecretKey"]
 session_token = response["Credentials"]["SessionToken"]
 
-# os.environ["user_access_key_id"] = user_access_key_id
-# os.environ["user_secret_access_key"] = user_secret_access_key
-# os.environ["session_token"] = session_token
 
 print("ACCESS_KEY_ID:")
 print(user_access_key_id)
