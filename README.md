@@ -34,8 +34,6 @@
   <h3 align="center">Cognito Authenticator for the IoT Device Manager</h3>
 
   <p align="center">
-    This script can be used to get a JSON Webtoken which is used as Authentication Mechanism within our API.
-    Just enter your Username and your Password and you are ready to start using our APIs!
     <br />
     <a href="https://github.com/tbueOSB/cognito_authenticator"><strong>Explore the docs »</strong></a>
     <br />
@@ -83,7 +81,7 @@ Python 3.7 installed.
    ```sh
    git clone https://github.com/tbueOSB/cognito_authenticator.git
    ```
-2. Install NPM packages
+2. Install Python packages
    ```sh
    pip install -r requirements.txt
    ```
