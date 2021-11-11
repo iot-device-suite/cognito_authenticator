@@ -72,10 +72,3 @@ user_access_key_id = response["Credentials"]["AccessKeyId"]
 user_secret_access_key = response["Credentials"]["SecretKey"]
 session_token = response["Credentials"]["SessionToken"]
 
-# os.environ["user_access_key_id"] = user_access_key_id
-# os.environ["user_secret_access_key"] = user_secret_access_key
-# os.environ["session_token"] = session_token
-
-print(f"User Access Key Id: {user_access_key_id}")
-print(f"User Secret Access Key: {user_secret_access_key}")
-print(f"Session Token: {session_token}")

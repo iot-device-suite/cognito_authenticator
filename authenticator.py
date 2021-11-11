@@ -349,4 +349,22 @@ if __name__ == "__main__":
 
     response = aws_srp.authenticate_user()
 
-    print(response)
+    if "AuthenticationResult" not in response.keys():
+        print(f"TOTP:")
+        totp = input()
+
+        session = response.get("Session")
+
+        response = cognito_idp_client.respond_to_auth_challenge(
+            ClientId=CLIENT_ID,
+            ChallengeName="SOFTWARE_TOKEN_MFA",
+            Session=session,
+            ChallengeResponses={
+                "USERNAME": username,
+                "SOFTWARE_TOKEN_MFA_CODE": totp
+            }
+        )
+
+        print(response)
+    else:
+        print(response)
