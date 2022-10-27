@@ -5,6 +5,7 @@ import hashlib
 import hmac
 import re
 import boto3
+import botocore
 # Debugging Output
 # boto3.set_stream_logger(name='botocore')
 import os
@@ -13,7 +14,7 @@ import getpass
 import argparse
 
 from src.exceptions import ForceChangePasswordException
-
+from botocore.config import Config
 
 # https://github.com/aws/amazon-cognito-identity-js/blob/master/src/AuthenticationHelper.js#L22
 n_hex = 'FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD1' + '29024E088A67CC74020BBEA63B139B22514A08798E3404DD' + \
@@ -122,7 +123,13 @@ class AWSSRP(object):
         self.pool_id = pool_id
         self.client_id = client_id
         self.client_secret = client_secret
-        self.client = client if client else boto3.client('cognito-idp', region_name=pool_region)
+        self.client = client if client else boto3.client(
+            'cognito-idp',
+            config=Config(
+                signature_version=botocore.UNSIGNED
+            ),
+            region_name=pool_region
+        )
         self.big_n = hex_to_long(n_hex)
         self.g = hex_to_long(g_hex)
         self.k = hex_to_long(hex_hash('00' + n_hex + '0' + g_hex))
@@ -336,7 +343,13 @@ if __name__ == "__main__":
         password = getpass.getpass()
 
     # Create the Cognito Identity Provider Handler
-    cognito_idp_client = boto3.client("cognito-idp", region_name=AWS_REGION)
+    cognito_idp_client = boto3.client(
+        "cognito-idp",
+        config=Config(
+            signature_version=botocore.UNSIGNED
+        ),
+        region_name=AWS_REGION
+    )
 
     aws_srp = AWSSRP(
         username=username,

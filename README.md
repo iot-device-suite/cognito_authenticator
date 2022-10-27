@@ -28,7 +28,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/tbueOSB/cognito_authenticator">
-    <img src="images/OSB_Logo.png" alt="Logo" width="250" height="131">
+    <img src="images/connagtive_logo.png" alt="Logo" width="585" height="256">
   </a>
 
   <h3 align="center">Cognito Authenticator for the IoT Device Manager</h3>
@@ -44,7 +44,6 @@
     ·
     <a href="https://github.com/tbueOSB/cognito_authenticator/issues">Request Feature</a>
   </p>
-</p>
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -73,7 +72,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-Python 3.7 installed.
+Python 3.7 or higher installed.
 
 ### Installation
 
@@ -110,7 +109,7 @@ See the [open issues](https://github.com/tbueOSB/cognito_authenticator/issues) f
 
 <!-- CONTACT -->
 ## Contact
-Tobias Büning - tbue@osb-ag.de
+Tobias Büning - tobias.buening@alten.com
 
 Project Link: [https://github.com/tbueOSB/cognito_authenticator](https://github.com/tbueOSB/cognito_authenticator)
 
